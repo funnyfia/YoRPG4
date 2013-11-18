@@ -15,7 +15,7 @@ public class Hobbit extends Character {
       post: initializes instance vars.
       =============================================*/
     public Hobbit() {
-	_hitPts = 130;
+	_HP = 130;
 	_strength = 100;
 	_defense = 50;
 	_attack = .4;
