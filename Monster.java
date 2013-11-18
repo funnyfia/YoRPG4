@@ -42,6 +42,10 @@ public class Monster extends Character {
 
     public void normalize() { }
 
+    public boolean critical() {
+        double chance = Math.random();
+        return chance < .15;
+    }
 
     public static String about() {
         return "Damn, son. You one ugly monster. Your skin is hot pink. What intimidating monster has hot pink skin? You really gotta get it together. Although, your face does get the monstrous message across: 19 eyes, one nostril, and no teeth. *Shudder* You nasty. No offense.";
