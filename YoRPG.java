@@ -83,11 +83,11 @@ public class YoRPG {
         catch ( IOException e ) { }
 
         //instantiate the player's character
-	if( type.equals("Warrior") ) { pat = new Warrior(name); }
-	else if( type.equals("Mage") ) { pat = new Mage(name); }
-	else if( type.equals("Rogue") ) { pat = new Rogue(name); }
-	else if( type.equals("Archer") ) { pat = new Archer(name); }
-	else if( type.equals("Hobbit") ) { pat = new Hobbit(name); }
+	if( type.equals("Warrior") ) { pat = new Warrior(name); System.out.println(Warrior.about()); }
+	else if( type.equals("Mage") ) { pat = new Mage(name); System.out.println(Mage.about()); }
+	else if( type.equals("Rogue") ) { pat = new Rogue(name); System.out.println(Rogue.about()); }
+	else if( type.equals("Archer") ) { pat = new Archer(name); System.out.println(Archer.about()); }
+	else if( type.equals("Hobbit") ) { pat = new Hobbit(name); System.out.println(Hobbit.about());}
 
     }//end newGame()
 
@@ -117,8 +117,8 @@ public class YoRPG {
 	    }
 	    catch ( IOException e ) { }
 
-	    if( opponent.equals("Monster") ) { smaug = new Monster(); }
-	    else if( opponent.equals("Ogre") ) {smaug = new Ogre(); }
+	    if( opponent.equals("Monster") ) { smaug = new Monster(); System.out.println(Monster.about()); }
+	    else if( opponent.equals("Ogre") ) {smaug = new Ogre(); System.out.println(Ogre.about()); }
 
             while( smaug.isAlive() && pat.isAlive() ) {
 
