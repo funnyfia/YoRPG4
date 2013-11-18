@@ -15,7 +15,8 @@ public class YoRPG {
     public final static int MAX_ENCOUNTERS = 5;
 
     //each round, a Warrior and a Monster will be instantiated
-    private Monster smaug; //Friendly generic monster name, eh?
+    private Character pat;
+    private Character smaug; //Friendly generic monster name, eh?
 
     private int moveCount;
     private boolean gameOver;
@@ -49,8 +50,8 @@ public class YoRPG {
 
         String s;
         String name = "";
-	String type = "";
-	String opponent = "";
+        String type = "";
+
         s = "Welcome to Ye Olde RPG!\n";
 
         s += "\nChoose your difficulty: \n";
@@ -68,10 +69,10 @@ public class YoRPG {
         s = "Who are you? A generic warrior, a portly but courageous Hobbit, a rogue Rogue, a magical Mage, or a skilled and ruthless Archer? Pick one.";
         System.out.print(s);
 
-	try {
+        try {
 	    type = in.readLine();
-	}
-	catch ( IOEception e ) { }
+        }
+        catch ( IOException e ) { }
 
         s = "Intrepid warrior, what doth thy call thyself? (State your name): ";
         System.out.print( s );
@@ -81,17 +82,12 @@ public class YoRPG {
         }
         catch ( IOException e ) { }
 
-	s = "Great and worthy " + type + ", who doth you wish your opponent to be? A misunderstood Monster, or a toothless Ogre?";
-        System.out.print( s );
-
-	try {
-	    opponent = in.readLine();
-	}
-	catch ( IOException e ) { }
-
-
         //instantiate the player's character
-        type pat = new type( name );
+	if( type.equals("Warrior") ) { pat = new Warrior(name); }
+	else if( type.equals("Mage") ) { pat = new Mage(name); }
+	else if( type.equals("Rogue") ) { pat = new Rogue(name); }
+	else if( type.equals("Archer") ) { pat = new Archer(name); }
+	else if( type.equals("Hobbit") ) { pat = new Hobbit(name); }
 
     }//end newGame()
 
@@ -106,17 +102,23 @@ public class YoRPG {
 
         int i = 1;
         int d1, d2;
-        
-        System.out.println(type.about)
+	String opponent = "";
 
         if ( Math.random() >= ( difficulty / 3.0 ) )
             System.out.println( "Nothing to see here. Move along!" );
 
         else {
-            System.out.println( "Lo, yonder " + opponent + " approacheth!" );
-            System.out.println(opponent.about());
+            System.out.println( "Lo, yonder monster approacheth!" );
 
-            opponent smaug = new opponent();
+	    System.out.println( "Who doth you wish your opponent to be? A misunderstood Monster, or a toothless Ogre?" );
+
+	    try {
+		opponent = in.readLine();
+	    }
+	    catch ( IOException e ) { }
+
+	    if( opponent.equals("Monster") ) { smaug = new Monster(); }
+	    else if( opponent.equals("Ogre") ) {smaug = new Ogre(); }
 
             while( smaug.isAlive() && pat.isAlive() ) {
 
@@ -131,14 +133,16 @@ public class YoRPG {
                 catch ( IOException e ) { }
 
                 if ( i == 2 ) {
-                    if (Math.random < .5) {
-                    	pat.specialize();
+                    if (Math.random() < .5) {
+                            pat.specialize();
                     }
                     else {
-                    	pat.attack(opponent);
+                            pat.attack( smaug );
                     }
-                else
+		}
+		else {
                     pat.normalize();
+		}
 
                 d1 = pat.attack( smaug );
                 d2 = smaug.attack( pat );
@@ -170,14 +174,11 @@ public class YoRPG {
         }//end else
 
         return true;
-    }//end playTurn()
+    } //end playTurn()
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     public static void main( String[] args ) {
-
-        //As usual, move the begin-comment bar down as you progressively 
-        //test each new bit of functionality...
 
         //loading...
         YoRPG game = new YoRPG();
@@ -192,10 +193,8 @@ public class YoRPG {
         }
 
         System.out.println( "Thy game doth be over." );
-        /*=============================================
 
-          =============================================*/
+    } //end main
 
-    }//end main
+} //end class YoRPG
 
-}//end class YoRPG
