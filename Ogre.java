@@ -8,30 +8,24 @@ public class Ogre extends Character {
 
     //default constructor
     public Ogre () {
-	_HP = 150;
+	_HP = 200;
 	_strength = 20 + (int) (Math.random() * 45);
-	_defense = 20;
+	_defense = 35;
 	_attack = 1;
     }
 
-    //methods
-    public boolean isAlive () {
-	return _HP > 0;
+    //Accessor
+    public String getName() {
+    	return "Nameless MONSTARRR. Roar, snarl, hiss!";
     }
-
-   public int getDefense () {
-	return _defense;
-    }
-
-    public void lowerHP (int v) {
-	_HP -= v;
-    }
-
-    public int attack (Warrior hero) {
-	int damage = (int) (_strength * _attack) - hero.getDefense();
-	if (damage < 0) { damage = 0; }
-	hero.lowerHP(damage);
-	return damage;
+    
+    public void specialize() {}
+    
+    public void normalize() {}
+    
+    public boolean critical() {
+    	double chance = Math.random();
+    	return chance < .25;
     }
 
     public static String about () {
