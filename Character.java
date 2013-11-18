@@ -104,7 +104,7 @@ public abstract class Character {
     /*=============================================
       void critical() -- kills an opponent, no matter what health it has
       =============================================*/
-    public abstract void critical();
+    public abstract boolean critical();
 
     /*=============================================
       boolean dodge() -- 1/20 chance of dodging an attack. aw yeah
