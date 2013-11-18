@@ -10,7 +10,7 @@ public class Mage extends Character {
 	_HP = 175;
 	_strength = 130;
 	_defense = 30;
-	_attack = .5
+	_attack = .5;
     }
 
     //Accessor
