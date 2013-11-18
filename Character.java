@@ -11,7 +11,7 @@
 public abstract class Character {
 
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
-    protected int _hitPts;
+    protected int _HP;
     protected int _strength;
     protected int _defense;
     protected double _attack;
@@ -24,7 +24,7 @@ public abstract class Character {
       post: initializes instance vars.
       =============================================*/
     public Character() {
-        _hitPts = 125;
+        _HP = 125;
         _strength = 100;
         _defense = 40;
         _attack = .4;
@@ -43,7 +43,7 @@ public abstract class Character {
       post: returns boolean indicated alive or dead
       =============================================*/
     public boolean isAlive() {
-        return _hitPts > 0;
+        return _HP > 0;
     }
 
 
@@ -82,7 +82,7 @@ public abstract class Character {
       post: Life instance var is lowered by input ammount.
       =============================================*/
     public void lowerHP( int damageInflicted ) {
-        _hitPts = _hitPts - damageInflicted;
+        _HP = _HP - damageInflicted;
     }
 
 
