@@ -33,7 +33,7 @@ public class Archer extends Character {
     }
     
     public boolean critical() {
-    	chance = Math.random();
+    	double chance = Math.random();
     	return chance < .3;
     }
     
