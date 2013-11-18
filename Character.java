@@ -37,7 +37,10 @@ public abstract class Character {
     public abstract String getName();
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    
+    // ~~~~~~~~~~~~~~ MODIFIERS ~~~~~~~~~~~~~~~~~
+    public void setHP (int HP) { _HP = HP; }
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     /*=============================================
       boolean isAlive() -- tell whether I am alive
       post: returns boolean indicated alive or dead
@@ -104,8 +107,12 @@ public abstract class Character {
     /*=============================================
       void critical() -- kills an opponent, no matter what health it has
       =============================================*/
-    public abstract boolean critical();
-
+ 
+    public abstract void critical (Character opponent) {
+	int r = (int) (Math.random() * 20);
+	if (r == 0) { opponent.setHP(0); } //setHP() modifier is added above, right under the accessors! -HOOLIE KIM
+    }
+    
     /*=============================================
       boolean dodge() -- 1/20 chance of dodging an attack. aw yeah
       ============================================*/
