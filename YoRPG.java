@@ -106,12 +106,15 @@ public class YoRPG {
 
         int i = 1;
         int d1, d2;
+        
+        System.out.println(type.about)
 
         if ( Math.random() >= ( difficulty / 3.0 ) )
             System.out.println( "Nothing to see here. Move along!" );
 
         else {
-            System.out.println( "Lo, yonder monster approacheth!" );
+            System.out.println( "Lo, yonder " + opponent + " approacheth!" );
+            System.out.println(opponent.about());
 
             opponent smaug = new opponent();
 
