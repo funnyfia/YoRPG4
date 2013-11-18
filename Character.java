@@ -59,6 +59,14 @@ public abstract class Character {
         int damage = (int)( (_strength * _attack) - opponent.getDefense() );
         //System.out.println( "\t\t**DIAG** damage: " + damage );
 
+	if ( critical() == true ) {
+	    damage = damage * 2;
+	}
+            
+        if ( opponent.dodge() == true ) {
+            damage = 0;
+        }
+        
         if ( damage < 0 )
             damage = 0;
 
@@ -102,7 +110,7 @@ public abstract class Character {
       boolean dodge() -- 1/20 chance of dodging an attack. aw yeah
       ============================================*/
     public boolean dodge() {
-	return Math.random > .2;
+	return Math.random() < .2;
     }
 	
 
