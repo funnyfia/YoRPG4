@@ -6,7 +6,7 @@
   healers, clerics, fairies, or even monsters of assorted shapes and sizes.
   However, there are certain things all of these entities have in common.
   These commonalities are expressed below. Read on!
-  =============================================*/
+  =============================================*/	
 
 public abstract class Character {
 
@@ -35,10 +35,6 @@ public abstract class Character {
     public int getDefense() { return _defense; }
 
     public abstract String getName();
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    // ~~~~~~~~~~~~~~ MODIFIERS ~~~~~~~~~~~~~~~~~
-    public void setHP (int HP) { _HP = HP; }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /*=============================================
@@ -105,13 +101,10 @@ public abstract class Character {
     public abstract void normalize();
 
     /*=============================================
-      void critical() -- kills an opponent, no matter what health it has
+      void critical() -- chance of landing a critical hit depends on Character and doubles the damage done on opponent
       =============================================*/
  
-    public abstract void critical (Character opponent) {
-	int r = (int) (Math.random() * 20);
-	if (r == 0) { opponent.setHP(0); } //setHP() modifier is added above, right under the accessors! -HOOLIE KIM
-    }
+    public abstract boolean critical();
     
     /*=============================================
       boolean dodge() -- 1/20 chance of dodging an attack. aw yeah
@@ -120,7 +113,6 @@ public abstract class Character {
 	return Math.random() < .2;
     }
 	
-
 
     /*=============================================
       String about() -- gives a categorical description of a type of entity
