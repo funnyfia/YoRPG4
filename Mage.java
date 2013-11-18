@@ -34,5 +34,9 @@ public class Mage extends Character {
 	double chance = Math.random();
 	return chance < .25;
     }
+    
+    public static String about() {
+    	return "SWOOSH SWOOSH! Your magic wand swooshes around, casting spells and stuff. Do mages even have wands? I honestly don't know. Anyhow, your swaggy, velvety cloak is so long that it falls to your feet. You could just be short, though.";
+    }
   
 }
