@@ -127,8 +127,13 @@ public class YoRPG {
                 }
                 catch ( IOException e ) { }
 
-                if ( i == 2 )
-                    pat.specialize();
+                if ( i == 2 ) {
+                    if (Math.random < .5) {
+                    	pat.specialize();
+                    }
+                    else {
+                    	pat.attack(opponent);
+                    }
                 else
                     pat.normalize();
 
