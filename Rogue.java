@@ -2,16 +2,12 @@ public class Rogue extends Character {
 
     //attributes
     private String _name;
-    private int _HP;
-    private int _strength;
-    private int _defense;
-    private double _attack;
 
     //default constructor
     public Rogue () {
-	_HP = 125;
-	_strength = 40;
-	_defense = 100;
+	_HP = 100;
+	_strength = 110;
+	_defense = 35;
 	_attack = 0.4;
     }
 
@@ -21,38 +17,24 @@ public class Rogue extends Character {
 	_name = name;
     }
 
-    //methods
-    public boolean isAlive () {
-	return _HP > 0;
-    }
-
-    public int getDefense () {
-	return _defense;
-    }
-
+    //Accessor
     public String getName () {
 	return _name;
     }
 
-    public void lowerHP (int v) {
-	_HP -= v;
-    }
-
-    public int attack (Monster enemy) {
-	int damage = (int) (_strength * _attack) - enemy.getDefense();
-	if (damage < 0) { damage = 0; }
-	enemy.lowerHP(damage);
-	return damage;
-    }
-
     public void specialize () {
-	_defense += 1;
-	_attack += 0.25;
+	_defense = 25;
+	_attack = .70;
     }
 
     public void normalize () {
-	_defense = 100;
+	_defense = 35;
 	_attack = 0.4;
+    }
+    	
+    public boolean critical() {
+    	double chance = Math.random();
+    	return chance < .2;
     }
     
     public static String about () {
