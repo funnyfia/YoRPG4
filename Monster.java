@@ -51,16 +51,4 @@ public class Monster extends Character {
         return "Damn, son. You one ugly monster. Your skin is hot pink. What intimidating monster has hot pink skin? You really gotta get it together. Although, your face does get the monstrous message across: 19 eyes, one nostril, and no teeth. *Shudder* You nasty. No offense.";
         }
         
-  /*=============================================
-  class Monster -- Represents random incarnations of 
-  the adventurer's natural enemy in Ye Olde RPG
-
-  A Monster is a Character, and thus has all the attributes and 
-  capabilities of a Character -- and then some (possibly).
-  A Monster's attributes -- along with the way it does things -- 
-  set it apart from other types of Characters.
-  The defining attributes of a Monster, and the way it goes about 
-  doing things, are specified below. Read on!
-  =============================================*/
-
 }//end class Monster
