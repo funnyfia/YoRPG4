@@ -39,4 +39,7 @@ public class Warrior extends Character {
 	return chance < .2;
     }
     
+    public static String about() {
+        return "You're one of the most heroic heroes that I ever did see. Your dark, silky hair shines under the sunlight and rustles in the wind. Your well defined muscles stand out due to the cocoa butter you rubbed all over them this morning. Congrats. Ya look fab.";
+    }
 }
